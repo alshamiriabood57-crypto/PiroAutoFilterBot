@@ -1,15 +1,25 @@
 services:
-  # A Docker web service
   - type: web
     name: PiroAutoFilterBot
-    env: python
+    runtime: python
+    plan: free
+    region: oregon
+    buildCommand: pip install -U -r requirements.txt
     startCommand: python3 bot.py
-    buildCommand: pip3 install -U -r requirements.txt
-    repo: https://github/ritheshrkrm/PiroAutoFilterBot.git # optional
-    region: oregon # optional (defaults to oregon)
-    plan: free # optional (defaults to starter)
-    branch: master # optional (defaults to master)
-    numInstances: 1 # optional (defaults to 1)
-    healthCheckPath: /
-
-#End of yaml
+    envVars:
+      - key: API_ID
+        value: "22417964"
+      - key: API_HASH
+        value: "153755c2bd889b23a9d9e73dc01afc49"
+      - key: BOT_TOKEN
+        value: "8508633803:AAE3N5be7fx4aNsCNKhZph-DhUiq6SuJQbU"
+      - key: DATABASE_URI
+        value: "mongodb+srv://ali:Ali2026Pass@cluster0.esdu8gs.mongodb.net/?appName=Cluster0&tlsAllowInvalidCertificates=true"
+      - key: DATABASE_NAME
+        value: "Scottbot"
+      - key: ADMINS
+        value: "7124506900"
+      - key: LOG_CHANNEL
+        value: "7124506900"
+      - key: CHANNELS
+        value: "7124506900"
